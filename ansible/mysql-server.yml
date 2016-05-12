@@ -26,7 +26,9 @@
        - java-1.8.0-openjdk
        - firewalld
        - git
-       - mysql-server
+       - mariadb
+       - mariadb-server
+       - mariadb-devel
 
    - name: Enable and start firewalld
      service: name=firewalld enabled=yes state=restarted
@@ -35,5 +37,4 @@
      firewalld: port={{ item }}/tcp permanent=true immediate=true state=enabled
      with_items:
        - 3306
-
 
